@@ -33,7 +33,7 @@ class DBStorage:
     __engine = None
     __session = None
 
-    def __init__(self):
+    def _init_(self):
         """Instantiation of DBStorage instance"""
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(getenv('HBNB_MYSQL_USER'),
@@ -59,7 +59,7 @@ class DBStorage:
             elif cls not in classes.values():
                 return
             obj_list = self.__session.query(cls).all()
-        obj_dict = {"{}.{}".format(v.__class__.__name, v.id):
+        obj_dict = {"{}.{}".format(v._class._name, v.id):
                     v for v in obj_list}
 
         return obj_dict
