@@ -1,4 +1,4 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 """Simple Flask web application"""
 from flask import Flask, render_template
 app = Flask('web_flask')
